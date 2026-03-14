@@ -27,5 +27,4 @@ jobs:
           python -m build
 
       - name: Publish with Trusted Publishing
-        if: ${{ secrets.PYPI_API_TOKEN == '' }}
         uses: pypa/gh-action-pypi-publish@release/v1
