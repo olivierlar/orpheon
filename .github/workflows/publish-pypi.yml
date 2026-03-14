@@ -26,15 +26,6 @@ jobs:
           python -m pip install --upgrade build
           python -m build
 
-      # Option A: Trusted Publishing (recommended)
       - name: Publish with Trusted Publishing
         if: ${{ secrets.PYPI_API_TOKEN == '' }}
         uses: pypa/gh-action-pypi-publish@release/v1
-
-      # Option B: API token fallback
-      - name: Publish with API token
-        if: ${{ secrets.PYPI_API_TOKEN != '' }}
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          user: __token__
-          password: ${{ secrets.PYPI_API_TOKEN }}
